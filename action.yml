@@ -1,0 +1,23 @@
+name: Update Github Action Secret Value
+description: Update Github Action Secret Value
+
+inputs:
+  github_token:
+    description: Github token
+    required: true
+  repo_name:
+    description: Github Repository name
+    required: false
+  repo_owner_name:
+    description: Github Repository Owner name
+    required: false
+  secret_name:
+    description: Github Secret key name for update
+    required: true
+  secret_value:
+    description: Github Secret value to update
+    required: true
+
+runs:
+  using: "node16"
+  main: "index.js"
