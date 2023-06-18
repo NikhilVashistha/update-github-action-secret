@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Github Secret
-        uses: update-github-action-secret@1.0.0
+        uses: update-github-action-secret@1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Your github token to allow access to the API
           repo_name: repoName # Github Repository name
