@@ -12,11 +12,21 @@ inputs:
     description: Github Repository Owner name
     required: false
   secret_name:
-    description: Github Secret key name for update
-    required: true
+    description: Github Secret key name for create/update
+    required: false
   secret_value:
-    description: Github Secret value to update
-    required: true
+    description: Github Secret value to create/update
+    required: false
+  variable:
+    description: To update Github Repository Variable
+    required: false
+    default: false
+  variable_name:
+    description: Github Variable name to update
+    required: false
+  variable_value:
+    description: Github Variable value to update
+    required: false
 
 runs:
   using: "node16"

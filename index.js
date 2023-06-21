@@ -11,19 +11,58 @@ const updateGithubSecret = async () => {
 
   const githubToken = core.getInput('github_token');
 
+  const variable = core.getBooleanInput('variable');
+
   if(!githubToken) {
     throw new Error('No token provided');
   }
   
+  const octokit = new Octokit({
+    auth: githubToken,
+  });
+
+  if(variable) {
+
+    const variableName = core.getInput('variable_name');
+
+    const variableValue = core.getInput('variable_value');
+
+    if(variableName) {
+      throw new Error('variable_name cannot be empty');
+    }
+
+    const updateVariableRequest = await octokit.request(
+      `PATCH /repos/${repoOwner}/${repoName}/actions/variables/${variableName}`,
+      {
+        owner: repoOwner,
+        repo: repoName,
+        name: variableName,
+        value: variableValue,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+      },
+    );
+
+    if(updateVariableRequest.status && updateVariableRequest.status == 200) {
+      core.setOutput('result', '✅ Github Repository Variable Updated Successfully!');
+    } else {
+      core.setFailed('❌ Failed to update repository action variable!');
+    }
+
+    return;
+  }
+
+
   // The secret key name you want to update
   const secretName = core.getInput('secret_name');
 
   // The secret value you want to encrypt and update in secrets
   const secretValue = core.getInput('secret_value');
-  
-  const octokit = new Octokit({
-    auth: githubToken,
-  });
+
+  if(secretName) {
+    throw new Error('secret_name cannot be empty');
+  }
 
   const publicKeyRequest = await octokit.request(
     `GET /repos/${repoOwner}/${repoName}/actions/secrets/public-key`,
