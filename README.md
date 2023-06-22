@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Github Secret
-        uses: update-github-action-secret@v1
+        uses: NikhilVashistha/update-github-action-secret@v1.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Your github token to allow access to the API
           secret_name: 'SECRET_KEY' # Github Secret key name for update
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Github Secret
-        uses: update-github-action-secret@v1
+        uses: NikhilVashistha/update-github-action-secret@v1.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Your github token to allow access to the API
           repo_name: repoName # Github Repository name
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Github Secret
-        uses: update-github-action-secret@v1
+        uses: NikhilVashistha/update-github-action-secret@v1.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Your github token to allow access to the API
           variable: true # To update github repository variable
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Github Secret
-        uses: update-github-action-secret@v1
+        uses: NikhilVashistha/update-github-action-secret@v1.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Your github token to allow access to the API
           repo_name: repoName # Github Repository name
