@@ -27,7 +27,7 @@ const updateGithubSecret = async () => {
 
     const variableValue = core.getInput('variable_value');
 
-    if(variableName) {
+    if(!variableName) {
       throw new Error('variable_name cannot be empty');
     }
 
@@ -60,7 +60,7 @@ const updateGithubSecret = async () => {
   // The secret value you want to encrypt and update in secrets
   const secretValue = core.getInput('secret_value');
 
-  if(secretName) {
+  if(!secretName) {
     throw new Error('secret_name cannot be empty');
   }
 
