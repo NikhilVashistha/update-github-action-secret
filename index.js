@@ -44,7 +44,7 @@ const updateGithubSecret = async () => {
       },
     );
 
-    if(updateVariableRequest.status && updateVariableRequest.status == 200) {
+    if(updateVariableRequest.status && updateVariableRequest.status == 204) {
       core.setOutput('result', '✅ Github Repository Variable Updated Successfully!');
     } else {
       core.setFailed('❌ Failed to update repository action variable!');
