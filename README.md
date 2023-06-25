@@ -41,7 +41,7 @@ jobs:
   update-secret:
     runs-on: ubuntu-latest
     steps:
-      - name: Update Github Secret
+      - name: Update Github Variable
         uses: NikhilVashistha/update-github-action-secret@v1.0.3
         with:
           github_token: ${{ secrets.REPO_ACCESS_TOKEN }} # Your github token to allow access to the API
@@ -57,7 +57,7 @@ jobs:
   update-secret:
     runs-on: ubuntu-latest
     steps:
-      - name: Update Github Secret
+      - name: Update Github Variable
         uses: NikhilVashistha/update-github-action-secret@v1.0.3
         with:
           github_token: ${{ secrets.REPO_ACCESS_TOKEN }} # Your github token to allow access to the API
