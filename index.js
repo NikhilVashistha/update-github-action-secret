@@ -103,7 +103,7 @@ const updateGithubSecret = async () => {
         },
       );
 
-      if(updateSecretRequest.status && updateSecretRequest.status == 200) {
+      if(updateSecretRequest.status && (updateSecretRequest.status == 200 || updateSecretRequest.status == 204)) {
         core.setOutput('result', '✅ Github Action Secret Updated Successfully!');
       } else {
         core.setFailed('❌ Failed to update repository action secret!');
